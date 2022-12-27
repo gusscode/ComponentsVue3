@@ -1,0 +1,96 @@
+<script setup>
+/** --------------------------------------------------------------
+ *  Button Lazy on Viewer
+ *  --------------------------------------------------------------
+ *  Details:
+ * @author Gustavo Fernandez Aguilar
+ * @version 1.0.0
+ */
+// -- Imports --
+import {ref, nextTick, computed} from 'vue'
+/** -----------------------------------------------------------------
+ * @NextTick                                                       | NextTick Inicial Render
+ *  -----------------------------------------------------------------
+ */
+nextTick(()=>{
+
+})
+/** -----------------------------------------------------------------
+ * @Props Define                                                   | Props
+ *  -----------------------------------------------------------------
+ */
+const props = defineProps({
+    val:{type: String},
+    modelValue: {type:[String, null, Array]}
+    
+})
+
+/** -----------------------------------------------------------------
+ * @Emits Define                                                   | Emits
+ *  -----------------------------------------------------------------
+ */
+const emit = defineEmits([
+"update:modelValue"
+])
+/** -----------------------------------------------------------------
+ * @Data                                                           | Data
+ *  -----------------------------------------------------------------
+ */
+
+/** -----------------------------------------
+ * @RefsTemplate elements from template dom
+ *  -----------------------------------------
+ */
+
+/** ------------------------------------------------------------------
+ * @Methods                                                         | Methods
+ *  ------------------------------------------------------------------
+ */
+ const selectValue = () => {
+    emit("update:modelValue", props.val);
+}
+
+/** ------------------------------------------------------------------
+ * @Watchs                                                          | Watchs
+ *  ------------------------------------------------------------------
+ */
+
+
+/** ------------------------------------------------------------------
+ * @Verify Props Exists                                             | Verify Props Exists
+ *  ------------------------------------------------------------------
+ */
+
+</script>
+<template>
+  <div class="g-container-button">
+    <!-- <button @click="selectValue">{{ val }}</button> -->
+    <div :class="modelValue === val ? 'g-button g-button-on' : 'g-button'" @click="selectValue">
+        <slot>{{ val }}</slot>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+/* .g-container-button {
+
+} */
+.g-button {
+    user-select: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    background-color: var(--g-bg-light);
+    padding: 8px;
+    outline: solid 1px var(--g-border-box); 
+    /* transition: outline 200ms ease-in-out; */
+}
+.g-button-on {
+    outline: solid 2px green; 
+    background-color: var(--g-bg-dark);
+    /* transition: all 200ms ease-in-out; */
+}
+</style>
