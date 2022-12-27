@@ -1,0 +1,54 @@
+html.dark {
+    --g-brand: #3aa675;
+    --g-brand-light: #349469;
+    --g-bg: #22272e;
+    --g-bg-light: #2b313a;
+    --g-bg-lighter: #262c34;
+    --g-bg-dark: #343b44;
+    --g-bg-darker: #37404c;
+    --g-text: #adbac7;
+    --g-text-light: #96a7b7;
+    --g-text-lighter: #8b9eb0;
+    --g-text-lightest: #8094a8;
+    --g-border: #3e4c5a;
+    --g-border-dark: #34404c;
+    --g-tip: #318a62;
+    --g-warning: #e0ad15;
+    --g-warning-bg: #2d2f2d;
+    --g-warning-bg-light: #423e2a;
+    --g-warning-bg-lighter: #44442f;
+    --g-warning-border-dark: #957c35;
+    --g-warning-details-bg: #39392d;
+    --g-warning-title: #fdca31;
+    --g-warning-text: #d8d96d;
+    --g-warning-text-accent: #ffbf00;
+    --g-warning-text-light: #ddb84b;
+    --g-warning-text-quote: #ccab49;
+    --g-danger: #fc1e38;
+    --g-danger-bg: #39232c;
+    --g-danger-bg-light: #4b2b35;
+    --g-danger-bg-lighter: #553040;
+    --g-danger-border-dark: #a25151;
+    --g-danger-details-bg: #482936;
+    --g-danger-title: #fc2d3b;
+    --g-danger-text: #ea9ca0;
+    --g-danger-text-accent: #fd3636;
+    --g-danger-text-light: #d9777c;
+    --g-danger-text-quote: #d56b6b;
+    --g-details-bg: #323843;
+    --g-badge-warning: var(--c-warning);
+    --g-badge-warning-text: #3c2e05;
+    --g-badge-danger: var(--c-danger);
+    --g-badge-danger-text: #401416;
+    --code-hl-bg-color: #363b46;
+}
+
+
+/* to change vuepress; "g" <=> "c"  in bottom html.dark */
+
+html.dark {
+    --g-shadow-box: rgba(143, 234, 46, 0.383);
+}
+:root {
+    --g-shadow-box: rgba(66, 66, 66, 0.383);
+}

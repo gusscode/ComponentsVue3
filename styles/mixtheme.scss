@@ -1,0 +1,18 @@
+html.dark {
+    --g-shadow-box: rgba(143, 234, 46, 0.383);
+    --g-border-box: rgb(122, 122, 122);
+    --g-bg-primary: green;
+    --g-notify-true: rgb(30, 95, 30);
+    --g-notify-false: rgb(144, 25, 25);
+}
+/* light root */
+:root {
+    --g-shadow-box: rgba(66, 66, 66, 0.383);
+    --g-border-box: rgb(161, 161, 161);
+    --g-bg-primary: green;
+    --g-notify-true: rgb(96, 196, 96);
+    --g-notify-false: rgb(237, 92, 56);
+}
+
+
+

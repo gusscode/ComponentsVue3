@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .page {
+    background-color: rgb(59, 59, 75) !important;
+}
+
+.sidebar {
+    background-color:rgb(47, 47, 55) !important;
+} */
+@import 'mixtheme';
+
+@import 'dark';
+@import 'light';
+
+
+
