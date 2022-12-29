@@ -14,7 +14,7 @@ import Pop from './notifications/Pop.vue';
  *  -----------------------------------------------------------------
  */
 
-onMounted(()=>{
+onMounted(() => {
     nextTick(() => {
         widthSlideContainer.value = sildeContainer.value.offsetWidth
     })
@@ -65,7 +65,7 @@ const sildeContainer = ref(null)
 </script>
 <template>
     <div class="g-slide-container" ref="sildeContainer">
-        
+
         <transition name="slide">
             <slot></slot>
         </transition>

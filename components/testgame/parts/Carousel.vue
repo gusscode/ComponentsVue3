@@ -39,7 +39,7 @@ const emit = defineEmits([])
  * @Data                                                           | Data
  *  -----------------------------------------------------------------
  */
-const currentSlide = ref(1)
+
 const slidesCount = ref(0)
 
 //const correctAnswers = ref(0)
@@ -70,7 +70,7 @@ const slidesCount = ref(0)
 <template>
     <div class="g-Carousel">
         <div class="g-slides-container">
-            <slot :currentSl="currentSlide"></slot>
+            <slot></slot>
         </div>
         <!-- Info States -->
         <p>pagina: {{ currentPage }}</p>

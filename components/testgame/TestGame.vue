@@ -84,7 +84,7 @@ const prevPage = (respuesta)=>{
 </script>
 <template>
     <div>
-        <Carousel v-slot="{ currentSl }" :total-pages="pageCount" :slides="pages" :pages="pages" :current-page="currentPage" :correct-answers="correctAnswers">
+        <Carousel :total-pages="pageCount" :slides="pages" :pages="pages" :current-page="currentPage" :correct-answers="correctAnswers">
             <Slide v-for="(page, index) in pages" :key="index" class="g-slide">
                 <Viewer :view-type="viewType" :page="page" :options="page.options" v-on:prev-page="prevPage" v-on:next-page="nextPage" v-show="currentPage === index + 1" :title="page.question"></Viewer>
             </Slide>
