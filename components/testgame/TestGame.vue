@@ -58,7 +58,6 @@ const correctAnswers = ref(0)
  *  ------------------------------------------------------------------
  */
 const nextPage = (respuesta)=>{
-    //console.log(respuesta); // verify response
     if (currentPage.value < pageCount.value) {
         // if response is correct, add 1 correctAnswer, else add 0
         correctAnswers.value = correctAnswers.value + respuesta
@@ -68,18 +67,6 @@ const nextPage = (respuesta)=>{
 const prevPage = (respuesta)=>{
     if (currentPage.value > 1) currentPage.value--; // respuesta on next Versions
 }
-
-
-/** ------------------------------------------------------------------
- * @Watchs                                                          | Watchs
- *  ------------------------------------------------------------------
- */
-
-
-/** ------------------------------------------------------------------
- * @Verify Props Exists                                             | Verify Props Exists
- *  ------------------------------------------------------------------
- */
 
 </script>
 <template>

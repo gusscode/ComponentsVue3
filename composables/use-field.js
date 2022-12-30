@@ -22,11 +22,24 @@ export const buttonProps = {
   textColor: {type: String, default: "white"},
 }
 
+
+
+/**
+ * Input Props
+ * @type {Object}
+ * @property {String, Number, null} modelValue v-model reference
+ * @property {String} place Placeholder prop
+ * @property {String, null} label
+ * @property {Boolean} outline default false
+ */
 export const inputProps = {
   /**------------------ v-model instance ---------------------------
    * @property {String, null} modelValue v-model reference
    */
   modelValue: [String, null],
+  place: {type: [String, null], default: null},
+  label: {type: [String, null], default: null},
+  outline: {type: Boolean, default: false},
 }
 
 export const inputEmits = [
@@ -63,7 +76,7 @@ export const selectProps = {
  * @property {String} colorFalse lever in false color optional, default gray #EFECEA
  * @ ...
  * @property {Number} width personalization whidth: base toggle
- * @param {Boolean} verticalMode if True: change to vertical mode, default false
+ * @property {Boolean} verticalMode if True: change to vertical mode, default false
  * @property {Number} leverRadOn lever in ON, size proportion
  * @property {Number} leverRadOff lever in OFF, size proportion
  */

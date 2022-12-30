@@ -6,20 +6,17 @@
  */
 
 // Imports
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 // -------------------------------------------------------------- Use Radio
 /**
  * useRadio
  * @type {Composable<(props , emit)>}
  * 
- * 
  * @param {*} props instance of definePros from component
  * @param {*} emit instance of defineEmits from component
  * 
  * @returns { > labelRef, containerRef, radioRef, selectValue()}
- * 
- * 
  */
 export const useRadio = (props, emit) => {
     // refs template
@@ -28,12 +25,7 @@ export const useRadio = (props, emit) => {
     const radioRef = ref(null);
     // -------------------------------------------- Methods
     // Select value and emit update v-model instance
-    /**
-     * @function selectValue() 
-     */
-    const selectValue = () => {
-        emit("update:modelValue", props.val);
-    }
+    const selectValue = () => emit("update:modelValue", props.val);
 
     return { labelRef, containerRef, radioRef, selectValue }
 }
@@ -42,16 +34,14 @@ export const useRadio = (props, emit) => {
  * useCheck
  * @type {Composable<(props , emit)>}
  * 
- * 
  * @param {*} props instance of definePros from component
  * @param {*} emit instance of defineEmits from component
  * 
  * @returns { > labelRef, checkRef, containerRef, existValueProp, selectValue()}
- * 
  */
 export const useCheck = (props, emit) => {
-    const existValueProp = ref(props.modelValue.includes(props.val))
 
+    const existValueProp = ref(props.modelValue.includes(props.val))
 
     const labelRef = ref()
     const checkRef = ref(null)
@@ -77,5 +67,45 @@ export const useCheck = (props, emit) => {
         emit("update:modelValue", arrayValue);
         existValueProp.value = true //props.modelValue.includes(props.val)
     }
-    return {labelRef, checkRef, containerRef, existValueProp, selectValue}
+    return { labelRef, checkRef, containerRef, existValueProp, selectValue }
 }
+
+/**
+ * useInput
+ * @type {Composable<(props , emit)>}
+ * 
+ * @param {*} props instance of definePros from component
+ * @param {*} emit instance of defineEmits from component
+ * 
+ * @returns { > inputRef, placeRef, inputContainer, inputLabel, isContentVoid(), value}
+ */
+export const useInput = (props, emit) => {
+    /** -----------------------------------------
+     * @RefsTemplate elements from template dom
+     *  -----------------------------------------
+     */
+    const inputRef = ref(null)
+    const placeRef = ref(null)
+    const inputContainer = ref(null)
+    const inputLabel = ref(null)
+
+    /** ------------------------------------------------------------------
+     * @Methods                                                         | Methods
+     *  ------------------------------------------------------------------
+     */
+    const isContentVoid = (e) => {
+        if (!placeRef.value) return;
+        if (e.target.value.length > 0) return placeRef.value.classList.add("g-input-active");
+        if (document.activeElement === inputRef.value) return;
+        placeRef.value.classList.remove("g-input-active")
+    }
+
+    // Update modelValue
+    const value = computed({
+        get() { return props.modelValue },
+        set(value) { emit("update:modelValue", value) },
+    })
+
+    return { inputRef, placeRef, inputContainer, inputLabel, isContentVoid, value}
+}
+
