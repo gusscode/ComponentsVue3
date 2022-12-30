@@ -5,6 +5,7 @@
  */
 import { ref } from "vue";
 
+
 /**
  * @Props
  */
@@ -44,6 +45,8 @@ const props = defineProps({
       </div>
     </template>
     
+    
+
     <div v-if="data.props.length > 0">
       <h3 class="text-2xl text-gray-600 font-bold mb-5">props:</h3>
       <ul>

@@ -10,24 +10,17 @@ import {ref, nextTick, onMounted, defineEmits, defineProps} from 'vue'
 import {toggleEmits, checkProps} from '../../composables/use-field'
 
 import { useRadio } from '../../composables/use-actions'
-/** -------------------------------------------------------------------------------------
- * Next Tick Function
- * --------------------------------------------------------------------------------------
- */
 
+// SSR -> 
 onMounted(()=>{
     nextTick(()=>{
-        //console.log(labelRef.value.offsetWidth);
-        let labelOffsetWidth = labelRef.value.offsetWidth
-        let radioOffsetWidth = radioRef.value.offsetWidth
-        containerRef.value.style.width = (labelOffsetWidth + radioOffsetWidth + 20) + "px"
-    
-        //labelRef.value.addEventListener("mouseenter", ()=>{console.log("hover element radio");})
+        let labelOffsetWidth = labelRef.value.offsetWidth;
+        let radioOffsetWidth = radioRef.value.offsetWidth;
+        containerRef.value.style.width = (labelOffsetWidth + radioOffsetWidth + 20) + "px";
     })
 })
 
 const props = defineProps({ ...checkProps })
-
 const emit = defineEmits([ ...toggleEmits ])
 
 const {labelRef, containerRef, radioRef, selectValue} = useRadio(props, emit)
