@@ -32,7 +32,7 @@ const emit = defineEmits([ ...toggleEmits ])
 
 const {labelRef, containerRef, radioRef, selectValue} = useRadio(props, emit)
 
-</script>
+</script>   
 
 <template>
     <div class="radio-container" ref="containerRef">
