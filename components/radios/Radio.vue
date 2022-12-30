@@ -6,13 +6,14 @@
  * @version 1.0.0
  * @author Gustavo Fernandez Aguilar
  */
-import {ref, nextTick, onMounted} from 'vue'
+import {ref, nextTick, onMounted, defineEmits, defineProps} from 'vue'
 import {toggleEmits, checkProps} from '../../composables/use-field'
 
 /** -------------------------------------------------------------------------------------
  * Next Tick Function
  * --------------------------------------------------------------------------------------
  */
+
 onMounted(()=>{
     nextTick(()=>{
         //console.log(labelRef.value.offsetWidth);
@@ -23,6 +24,7 @@ onMounted(()=>{
         //labelRef.value.addEventListener("mouseenter", ()=>{console.log("hover element radio");})
     })
 })
+
 /** ------------------------------------------------------------------------------------------
  *  @Props Define                                                                           | Props
  *  ------------------------------------------------------------------------------------------
@@ -52,6 +54,8 @@ const radioRef = ref(null)
 const selectValue = () => {
     emit("update:modelValue", props.val);
 }
+
+// Not support composables origin {ref, defineProps, defineEmits} from 'vue' on Vuepress 2;
 </script>
 
 <template>
