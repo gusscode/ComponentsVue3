@@ -9,6 +9,7 @@
 import {ref, nextTick, onMounted, defineEmits, defineProps} from 'vue'
 import {toggleEmits, checkProps} from '../../composables/use-field'
 
+import { useRadio } from '../../composables/use-actions'
 /** -------------------------------------------------------------------------------------
  * Next Tick Function
  * --------------------------------------------------------------------------------------
@@ -25,37 +26,12 @@ onMounted(()=>{
     })
 })
 
-/** ------------------------------------------------------------------------------------------
- *  @Props Define                                                                           | Props
- *  ------------------------------------------------------------------------------------------
- */
 const props = defineProps({ ...checkProps })
 
-/** ------------------------------------------------------------------------------------------
- *  @Emits Define                                                                           | Emits
- *  ------------------------------------------------------------------------------------------
- */
 const emit = defineEmits([ ...toggleEmits ])
 
-/**--------------------------------------------------------------------------------------------
- * @Data                                                                                    | Data
- * --------------------------------------------------------------------------------------------
- */
+const {labelRef, containerRef, radioRef, selectValue} = useRadio(props, emit)
 
-const labelRef = ref(null);
-const containerRef = ref(null)
-const radioRef = ref(null)
-//
-/**--------------------------------------------------------------------------------------------
- * @Methods                                                                                 | Methods
- * --------------------------------------------------------------------------------------------
- */
-// Select value and emit update v-model instance
-const selectValue = () => {
-    emit("update:modelValue", props.val);
-}
-
-// Not support composables origin {ref, defineProps, defineEmits} from 'vue' on Vuepress 2;
 </script>
 
 <template>

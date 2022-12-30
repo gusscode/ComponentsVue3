@@ -1,4 +1,5 @@
-//  Not support composables origin {ref, defineProps, defineEmits} from 'vue' on Vuepress 2
+//  !Not support composables origin {ref, defineProps, defineEmits} from 'vue' on Vuepress 2
+// Yes support render on ref, defineProps $ defineEmits are not working how vue 2 or setup initial 
 
 
 /**
@@ -7,34 +8,14 @@
  */
 
 // Imports
-/* import { ref, defineEmits, defineProps } from 'vue' */
+import { ref } from 'vue'
 
-import { checkProps, toggleEmits } from '../composables/use-field'
-
-export const useRadio1 = {
-    selectValue: (emit) => {
-
-    }
-}
-
-export const useRadio = (/* ref, defineEmits, defineProps */) => {
-    /** ------------------------------------------------------------------------------------------
- *  @Props Define                                                                           | Props
- *  ------------------------------------------------------------------------------------------
- */
-    const props = defineProps({ ...checkProps })
-
-    /** ------------------------------------------------------------------------------------------
-     *  @Emits Define                                                                           | Emits
-     *  ------------------------------------------------------------------------------------------
-     */
-    const emit = defineEmits([...toggleEmits])
-
+export const useRadio = (/* ref, defineEmits, defineProps */props, emit) => {
     /**--------------------------------------------------------------------------------------------
      * @Data                                                                                    | Data
      * --------------------------------------------------------------------------------------------
      */
-
+    // refs template
     const labelRef = ref(null);
     const containerRef = ref(null)
     const radioRef = ref(null)
@@ -48,8 +29,5 @@ export const useRadio = (/* ref, defineEmits, defineProps */) => {
         emit("update:modelValue", props.val);
     }
 
-    // Return
-    return {
-        emit, props, labelRef, containerRef, radioRef, selectValue
-    }
+    return { labelRef, containerRef, radioRef, selectValue }
 }
