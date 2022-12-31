@@ -66,6 +66,10 @@ const {labelRef, containerRef, radioRef, selectValue} = useRadio(props, emit)
     background-color: var(--g-bg-light);
     /* cursor: pointer; */
 }
+.g-radio:hover {
+    box-shadow: var(--g-shadow-box) 3px 3px 3px;
+    outline: solid 2px var(--g-border-box);
+}
 /* 
 | ---------------------------------------------------------------- Label
 */

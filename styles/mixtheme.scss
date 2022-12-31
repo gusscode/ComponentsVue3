@@ -2,8 +2,12 @@ html.dark {
     --g-shadow-box: rgba(143, 234, 46, 0.383);
     --g-border-box: rgb(122, 122, 122);
     --g-bg-primary: green;
-    --g-notify-true: rgb(30, 95, 30);
+    --g-notify-true: rgb(115, 190, 30);
     --g-notify-false: rgb(144, 25, 25);
+
+    --g-pop-c-true: rgb(101, 176, 16);
+    --g-pop-c-false: rgb(180, 40, 40);
+    --g-border-select: rgb(57, 134, 141);
 }
 /* light root */
 :root {
@@ -12,6 +16,10 @@ html.dark {
     --g-bg-primary: green;
     --g-notify-true: rgb(96, 196, 96);
     --g-notify-false: rgb(237, 92, 56);
+    
+    --g-pop-c-true: rgb(156, 213, 91);
+    --g-pop-c-false: rgb(255, 87, 87);
+    --g-border-select: rgb(36, 135, 192);
 }
 
 

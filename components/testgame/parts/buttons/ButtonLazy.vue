@@ -63,7 +63,7 @@ const emit = defineEmits([
 
 </script>
 <template>
-  <div class="g-container-button">
+  <div :class="modelValue === val ? 'g-container-button g-container-button-on' : 'g-container-button '">
     <!-- <button @click="selectValue">{{ val }}</button> -->
     <div :class="modelValue === val ? 'g-button g-button-on' : 'g-button'" @click="selectValue">
         <slot>{{ val }}</slot>
@@ -71,26 +71,45 @@ const emit = defineEmits([
   </div>
 </template>
 
-<style scoped>
-/* .g-container-button {
-
-} */
-.g-button {
-    user-select: none;
-    margin-top: 10px;
+<style lang="scss" scoped>
+.g-container-button {
+    width: 240px;
+     margin-top: 10px;
     margin-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 200px;
+    padding-top: 2px;
+    padding-bottom: 4px;
+    padding-left: 3px;
+    padding-right: 3px;
+    background-color: var(--g-border-box);
+    border-radius: 12px;
+}
+.g-button {
+    user-select: none;
+    /* margin-top: 10px;
+    margin-bottom: 10px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
     background-color: var(--g-bg-light);
-    padding: 8px;
-    outline: solid 1px var(--g-border-box); 
+    padding: 5px;
+
+    /* outline: solid 1px var(--g-border-box);  */
+    border-radius: 10px;
+    
     /* transition: outline 200ms ease-in-out; */
 }
 .g-button-on {
-    outline: solid 2px green; 
+    /* outline: solid 2px green;  */
     background-color: var(--g-bg-dark);
     /* transition: all 200ms ease-in-out; */
+    
+}
+.g-container-button-on{
+    background-color: var(--g-border-select);
 }
 </style>
