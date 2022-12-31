@@ -9,8 +9,8 @@
  * @version 1.0.0
  */
 // -- Imports --
-import { buttonProps } from '../../composables/use-field';
-import {ref, nextTick, computed} from 'vue'
+import { buttonProps } from '../../composables/props/index.props';
+import { nextTick } from 'vue'
 
 /** -----------------------------------------------------------------
  * @NextTick                                                       | NextTick Inicial Render

@@ -13,10 +13,10 @@
  * @author Gustavo Fernandez Aguilar
  *
  */
-import { ref, nextTick, computed, onMounted, onUnmounted } from "vue";
-import { toggleProps, toggleEmits /* changeState */ } from '../../composables/use-field'
+import { nextTick, onMounted, onUnmounted } from "vue";
+import { toggleProps } from '../../composables/props/index.props'
 
-
+import { useToggle } from "../../composables/hooks/index"
 
 onMounted(()=>{
   nextTick(() => {
@@ -35,42 +35,12 @@ function listeners(event){
   if (!toggleRef.value.contains(event.target)) leverInRef.value.classList.remove("lever-on-before")
 }
 
-/** ---------------------------------------------------------
- * @Props Define
- * ----------------------------------------------------------
- */
-const props = defineProps({
-  ...toggleProps
-});
-/**----------------------------------------------------------
- * @Emits Define
- * ----------------------------------------------------------
- */
-const emit = defineEmits([
-  ...toggleEmits
-]);
-/**----------------------------------------------------------
- * @Data 
- * ----------------------------------------------------------
- */
-const state = ref(props.modelValue); // boolean auxiliar for [changeState(),]
-const toggleRef = ref(null)
-const leverInRef = ref(null)
 
-//
-/**----------------------------------------------------------
- * @Methods 
- * ----------------------------------------------------------
- */
+const props = defineProps({ ...toggleProps });
 
-// (change state as toggle auxiliar for emit bool state); when Click on component
-const changeState = () => {
-  state.value = !state.value;
-  emit("update:modelValue", state.value);
+const emit = defineEmits([ "update:modelValue" ]);
 
-  if (state.value === true) return leverInRef.value.classList.add("lever-on-before")
-  leverInRef.value.classList.remove("lever-on-before")
-};
+const { state, toggleRef, leverInRef, changeState } = useToggle(props, emit)
 
 </script>
 

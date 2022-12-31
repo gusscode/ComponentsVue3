@@ -7,8 +7,8 @@
  */
 
 import {nextTick, onMounted } from 'vue'
-import { checkProps, toggleEmits } from '../../composables/use-field'
-import {useCheck} from '../../composables/use-actions'
+import { checkProps } from '../../composables/props/index.props'
+import { useCheck } from '../../composables/hooks/index'
 
 // Error compilation whitout onMounted SSR vuepress, access to document and ref elementes on nexttick 
 onMounted(()=>{
@@ -20,7 +20,7 @@ onMounted(()=>{
 })
 
 const props = defineProps({ ...checkProps })
-const emit = defineEmits([...toggleEmits])
+const emit = defineEmits(['update:modelValue'])
 
 const {labelRef, checkRef, containerRef,existValueProp, selectValue} = useCheck(props, emit)
 

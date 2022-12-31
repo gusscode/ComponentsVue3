@@ -8,8 +8,9 @@
  */
 
 // -- Imports --
-import { ref, nextTick, computed, watch, onMounted, onUnmounted } from "vue";
-import { selectProps, toggleEmits } from "../../composables/use-field.js";
+import { ref, nextTick, onMounted, onUnmounted } from "vue";
+import { selectProps } from "../../composables/props/index.props";
+import {useSelect} from "../../composables/hooks/index"
 /**-----------------------------------------------------------------------------------
  *                                                                             | Next Tick Function
  * -----------------------------------------------------------------------------------
@@ -49,38 +50,40 @@ const props = defineProps({
  * @Emits Define                                                              | Emits
  * ------------------------------------------------------------------------------
  */
-const emit = defineEmits([...toggleEmits]);
+const emit = defineEmits(["update:modelValue"]);
 
-/** -----------------------------------------------------------------------------
- * @Data                                                                      | Data
- * ------------------------------------------------------------------------------
- */
-const dropdownState = ref(false);
+const { dropdownState, gSelectHeaderRef, itemDropdownRef, textHeaderRef, dropdownRef, selectValue, changeDropdownState  } = useSelect(props, emit)
 
-/** -----------------------------------------
- * @RefsTemplate elements from the template in the DOM
- *  -----------------------------------------
- */
-const gSelectHeaderRef = ref(null);
-const itemDropdownRef = ref(null);
-const textHeaderRef = ref(null)
-const dropdownRef = ref(null)
+// /** -----------------------------------------------------------------------------
+//  * @Data                                                                      | Data
+//  * ------------------------------------------------------------------------------
+//  */
+// const dropdownState = ref(false);
 
-/** -----------------------------------------------------------------------------
- * @Methods                                                                  | Methods 
- * ------------------------------------------------------------------------------
- */
-const selectValue = (value) => {
-    emit("update:modelValue", value);
-    nextTick(() => {
-        gSelectHeaderRef.value.style.width = textHeaderRef.value.offsetWidth > 180 ? (textHeaderRef.value.offsetWidth + 40) + "px" : "200px"
-        dropdownRef.value.style.width = gSelectHeaderRef.value.offsetWidth + "px"
-    })
-};
+// /** -----------------------------------------
+//  * @RefsTemplate elements from the template in the DOM
+//  *  -----------------------------------------
+//  */
+// const gSelectHeaderRef = ref(null);
+// const itemDropdownRef = ref(null);
+// const textHeaderRef = ref(null)
+// const dropdownRef = ref(null)
 
-const changeDropdownState = () => {
-    dropdownState.value = !dropdownState.value;
-};
+// /** -----------------------------------------------------------------------------
+//  * @Methods                                                                  | Methods 
+//  * ------------------------------------------------------------------------------
+//  */
+// const selectValue = (value) => {
+//     emit("update:modelValue", value);
+//     nextTick(() => {
+//         gSelectHeaderRef.value.style.width = textHeaderRef.value.offsetWidth > 180 ? (textHeaderRef.value.offsetWidth + 40) + "px" : "200px"
+//         dropdownRef.value.style.width = gSelectHeaderRef.value.offsetWidth + "px"
+//     })
+// };
+
+// const changeDropdownState = () => {
+//     dropdownState.value = !dropdownState.value;
+// };
 
 /** ------------------------------------------------------------------------------
  *  @Watchs                                                                  | Watchs

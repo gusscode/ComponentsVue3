@@ -9,9 +9,9 @@
  */
 // -- Imports --
 import { ref, nextTick, computed, onMounted } from 'vue'
-import { buttonProps, inputProps, inputEmits } from '../../composables/use-field'
+import { inputProps } from '../../composables/props/index.props'
 
-import { useInput } from '../../composables/use-actions'
+import { useInput } from '../../composables/hooks/index'
 /** -----------------------------------------------------------------
  * @NextTick                                                       | NextTick Inicial Render
  *  -----------------------------------------------------------------
@@ -34,7 +34,7 @@ onMounted(() => {
 
 const props = defineProps({ ...inputProps })
 
-const emit = defineEmits([...inputEmits])
+const emit = defineEmits(["update:modelValue"])
 
 const {inputRef, placeRef, inputContainer, inputLabel, isContentVoid, value} = useInput(props, emit)
 
@@ -53,6 +53,8 @@ const {inputRef, placeRef, inputContainer, inputLabel, isContentVoid, value} = u
 </template>
 
 <style scoped>
+/*--------------------------------------------------------------------- Input Container 
+ */
 .g-input-container {
   position: relative;
   display: flex;
@@ -63,7 +65,8 @@ const {inputRef, placeRef, inputContainer, inputLabel, isContentVoid, value} = u
 .g-input-box {
   position: relative;
 }
-
+/*---------------------------------------------------------------------- Label 
+ */
 .g-input-label {
   position: relative;
 
@@ -78,7 +81,8 @@ const {inputRef, placeRef, inputContainer, inputLabel, isContentVoid, value} = u
   margin: 0px;
   padding: 0px;
 }
-
+/*----------------------------------------------------------------------- Placeholder 
+ */
 .g-place {
   position: absolute;
   user-select: none;
@@ -89,7 +93,8 @@ const {inputRef, placeRef, inputContainer, inputLabel, isContentVoid, value} = u
   transition: all 180ms ease-out;
 
 }
-
+/*------------------------------------------------------------------------ Outline 
+ */
 .g-input-outline {
   background-color: var(--g-bg-dark);
   color: var(--g-text);
@@ -103,7 +108,8 @@ const {inputRef, placeRef, inputContainer, inputLabel, isContentVoid, value} = u
 .g-input-outline input::placeholder {
   color: blue;
 }
-
+/*-------------------------------------------------------------------------- Active 
+ */
 .g-input-active {
   color: var(--g-text);
   font-size: 12px;
@@ -119,7 +125,7 @@ const {inputRef, placeRef, inputContainer, inputLabel, isContentVoid, value} = u
     opacity: 1;
   }
 
-  50% {
+  40% {
     opacity: 0;
   }
 

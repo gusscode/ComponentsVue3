@@ -6,10 +6,10 @@
  * @version 1.0.0
  * @author Gustavo Fernandez Aguilar
  */
-import {ref, nextTick, onMounted, defineEmits, defineProps} from 'vue'
-import {toggleEmits, checkProps} from '../../composables/use-field'
+import { nextTick, onMounted } from 'vue'
+import { checkProps } from '../../composables/props/index.props'
 
-import { useRadio } from '../../composables/use-actions'
+import { useRadio } from '../../composables/hooks/index'
 
 // SSR -> 
 onMounted(()=>{
@@ -21,7 +21,7 @@ onMounted(()=>{
 })
 
 const props = defineProps({ ...checkProps })
-const emit = defineEmits([ ...toggleEmits ])
+const emit = defineEmits([ 'update:modelValue'])
 
 const {labelRef, containerRef, radioRef, selectValue} = useRadio(props, emit)
 
