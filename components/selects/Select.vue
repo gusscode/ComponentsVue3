@@ -37,64 +37,14 @@ onUnmounted(() => {
 function listenersSelect(event) {
     if (!gSelectHeaderRef.value.contains(event.target)) { dropdownState.value = false; }
 }
-/** -----------------------------------------------------------------------------
- * @Props Define                                                              | Props
- * ------------------------------------------------------------------------------
- */
-const props = defineProps({
-    ...selectProps,
-    green: { default: () => ({}) }
-});
 
-/** -----------------------------------------------------------------------------
- * @Emits Define                                                              | Emits
- * ------------------------------------------------------------------------------
- */
+const props = defineProps({ ...selectProps });
 const emit = defineEmits(["update:modelValue"]);
 
 const { dropdownState, gSelectHeaderRef, itemDropdownRef, textHeaderRef, dropdownRef, selectValue, changeDropdownState  } = useSelect(props, emit)
 
-// /** -----------------------------------------------------------------------------
-//  * @Data                                                                      | Data
-//  * ------------------------------------------------------------------------------
-//  */
-// const dropdownState = ref(false);
-
-// /** -----------------------------------------
-//  * @RefsTemplate elements from the template in the DOM
-//  *  -----------------------------------------
-//  */
-// const gSelectHeaderRef = ref(null);
-// const itemDropdownRef = ref(null);
-// const textHeaderRef = ref(null)
-// const dropdownRef = ref(null)
-
-// /** -----------------------------------------------------------------------------
-//  * @Methods                                                                  | Methods 
-//  * ------------------------------------------------------------------------------
-//  */
-// const selectValue = (value) => {
-//     emit("update:modelValue", value);
-//     nextTick(() => {
-//         gSelectHeaderRef.value.style.width = textHeaderRef.value.offsetWidth > 180 ? (textHeaderRef.value.offsetWidth + 40) + "px" : "200px"
-//         dropdownRef.value.style.width = gSelectHeaderRef.value.offsetWidth + "px"
-//     })
-// };
-
-// const changeDropdownState = () => {
-//     dropdownState.value = !dropdownState.value;
-// };
-
-/** ------------------------------------------------------------------------------
- *  @Watchs                                                                  | Watchs
- *  ------------------------------------------------------------------------------
- */
-
-
- // Verify props
-
-
 </script>
+
 <template>
     <div class="g-select-container">
         <div ref="gSelectHeaderRef" class="g-select-header" @click="changeDropdownState">
