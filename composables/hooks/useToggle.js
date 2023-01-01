@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 /**
  * useToogle
@@ -34,20 +34,27 @@ export const useToggleDark = (props, emit) => {
     const toggleRef = ref(null)
     const leverInRef = ref(null)
 
+    console.log(props.local);
+    // SSR condition, access documentElement
+    onMounted(() => {
 
-    //
-    if (document.documentElement.classList.contains("dark")) state.value = true;
-    // if dark mode existe in LocalStorage add class dark in html element
-    if (localStorage.getItem("darkMode")) {
-        state.value = true
-        document.documentElement.classList.add("dark");}
+        //if (document.documentElement.classList.contains("dark")) state.value = true;
+
+        // if dark mode existe in LocalStorage add class dark in html element
+        if (localStorage.getItem("darkMode")) {
+            state.value = true
+            document.documentElement.classList.add("dark");
+        }
+        if (!localStorage.getItem("darkMode")) {
+            state.value = false
+            document.documentElement.classList.remove("dark");
+        }
+    })
     //--------------------------------------------------------------- Methods
     // (change state as toggle auxiliar for emit bool state); when Click on component
     const changeState = () => {
         state.value = !state.value;
         emit("update:modelValue", state.value);
-
-
 
         if (state.value) {
             if (props.local) localStorage.setItem("darkMode", true)
@@ -55,7 +62,7 @@ export const useToggleDark = (props, emit) => {
         };
 
         document.documentElement.classList.remove("dark");
-        if (props.local) localStorage.removeItem("darkMode", true)
+        if (props.local) localStorage.removeItem("darkMode")
         /* if (state.value === true) return leverInRef.value.classList.add("lever-on-before")
         leverInRef.value.classList.remove("lever-on-before") */
     };
