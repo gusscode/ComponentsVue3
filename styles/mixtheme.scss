@@ -23,5 +23,8 @@ html.dark {
 }
 
 
-
-
+// Background color general 
+body {
+    background-color: var(--g-bg);
+    transition: all 300ms ease-in-out;
+}
