@@ -18,6 +18,7 @@ export const useCheck = (props, emit) => {
     //--------------------------- Ref Template
     const labelRef = ref()
     const checkRef = ref(null)
+    const checkInsideRef = ref(null)
     const containerRef = ref(null)
     
     //--------------------------- Methods
@@ -37,5 +38,5 @@ export const useCheck = (props, emit) => {
         emit("update:modelValue", arrayValue);
         existValueProp.value = true //props.modelValue.includes(props.val)
     }
-    return { labelRef, checkRef, containerRef, existValueProp, selectValue }
+    return { labelRef, checkRef, checkInsideRef, containerRef, existValueProp, selectValue }
 }

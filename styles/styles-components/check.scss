@@ -1,0 +1,57 @@
+.g-tick {
+    fill: white;
+}
+/* 
+| ------------------------------------------------------ Container
+*/
+.g-check-container {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+/* 
+| ------------------------------------------------------- Label
+*/
+.g-label {
+    padding-left: 8px;
+    color: var(--c-text);
+}
+.g-label p:hover ~ .g-check{
+    box-shadow: var(--g-shadow-box) 3px 3px 3px;
+    outline: solid 1px rgb(82, 82, 82);
+}
+/* 
+| -------------------------------------------------------- Check Box
+*/
+.g-check {
+
+    outline: solid 1px rgb(166, 166, 166);
+    width: 35px;                     
+    height: 35px;                    
+    border-radius: 10%;
+    background-color: var(--g-bg-light);
+
+    
+}
+.g-check:hover {
+    box-shadow: var(--g-shadow-box) 3px 3px 3px;
+    outline: solid 1px rgb(82, 82, 82);
+}
+/* 
+| --------------------------------------------------------- Check Inside
+*/
+.g-check-inside {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border-radius: 2px;
+    background-color: rgb(41, 128, 55);
+    transform: scale(0.9);
+    transition: transform 200ms ease-in-out;
+}
+
+.g-check-inside-off {
+    transform: scale(0) rotate(90deg);
+    /* transform: rotate(90deg); */
+    transition: all 200ms ease-in-out;
+}

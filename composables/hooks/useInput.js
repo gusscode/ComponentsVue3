@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 
 /**
  * useInput
@@ -18,6 +18,13 @@ export const useInput = (props, emit) => {
     const inputContainer = ref(null)
     const inputLabel = ref(null)
 
+    onMounted(()=>{
+        if(props.text)inputRef.value.type = "text";
+        if(props.email)inputRef.value.type = "email";
+        if(props.password)inputRef.value.type = "password";
+    })
+
+
     //---------------- Methods
     const isContentVoid = (e) => {
         if (!placeRef.value) return;
@@ -25,6 +32,8 @@ export const useInput = (props, emit) => {
         if (document.activeElement === inputRef.value) return;
         placeRef.value.classList.remove("g-input-active")
     }
+
+    
 
     // Update modelValue
     const value = computed({

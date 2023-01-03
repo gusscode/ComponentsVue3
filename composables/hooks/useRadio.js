@@ -15,9 +15,10 @@ export const useRadio = (props, emit) => {
     const labelRef = ref(null);
     const containerRef = ref(null)
     const radioRef = ref(null);
+    const radioInsideRef = ref(null)
     // -------------------------------------------- Methods
     // Select value and emit update v-model instance
     const selectValue = () => emit("update:modelValue", props.val);
 
-    return { labelRef, containerRef, radioRef, selectValue }
+    return { labelRef, radioInsideRef, containerRef, radioRef, selectValue }
 }

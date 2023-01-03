@@ -11,7 +11,7 @@ const { state, toggleRef, leverInRef, changeState } = useToggleDark(props, emit)
 </script>
 
 <template>
-    <div @click="changeState" class="g-toggle-container">
+    <div @click="changeState" class="g-toggle-dark-container">
         <div v-if="state" class="svg-box">
             <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -47,7 +47,7 @@ const { state, toggleRef, leverInRef, changeState } = useToggleDark(props, emit)
 
 
 <style lang="scss" scoped>
-.g-toggle-container{
+.g-toggle-dark-container{
     width: 30px;
     height: 30px;
 }
@@ -61,7 +61,7 @@ svg {
     height: 30px;
     cursor: pointer;
 }
-.g-toggle-container:hover svg path{
+.g-toggle-dark-container:hover svg path{
     fill:  var(--g-text-light);
     filter: drop-shadow(5px 5px 5px var(--g-shadow-box));
 }

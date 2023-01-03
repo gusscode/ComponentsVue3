@@ -5,6 +5,11 @@
  * @property {String} place Placeholder prop
  * @property {String, null} label
  * @property {Boolean} outline default false
+ * 
+ * @property {Boolean} text default false
+ * @property {Boolean} email default false
+ * @property {Boolean} password default false
+ * 
  */
 //------------------------------------------------------------------------ Input Props
 export const inputProps = {
@@ -15,4 +20,8 @@ export const inputProps = {
     place: {type: [String, null], default: null},
     label: {type: [String, null], default: null},
     outline: {type: Boolean, default: false},
+    //--------------------------
+    text: {type: Boolean, default: false},
+    email: {type: Boolean, default: false},
+    password: {type: Boolean, default: false},
   }

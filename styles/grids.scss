@@ -1,0 +1,27 @@
+.g-grid {
+    display: grid;
+}
+
+.g-grid-cols-1 {
+    grid-template-columns: 1fr;
+}
+
+.g-grid-cols-2 {
+    grid-template-columns: 2fr;
+}
+
+.g-grid-cols-3 {
+    grid-template-columns: 3fr;
+}
+
+.g-grid-cols-100 {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 100px), 1fr));
+}
+
+.g-grid-cols-200 {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+}
+
+.g-grid-cols-300 {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+}
