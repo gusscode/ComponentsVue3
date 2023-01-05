@@ -7,64 +7,22 @@
  * @version 1.0.0
  */
 // -- Imports --
-import { ref, nextTick, computed, onMounted } from 'vue'
-import Pop from './notifications/Pop.vue';
-/** -----------------------------------------------------------------
- * @NextTick                                                       | NextTick Inicial Render
- *  -----------------------------------------------------------------
- */
+import { ref, nextTick, onMounted } from 'vue'
 
+//------------ Initial Render
 onMounted(() => {
     nextTick(() => {
-        widthSlideContainer.value = sildeContainer.value.offsetWidth
+        widthSlideContainerRef.value = sildeContainerRef.value.offsetWidth
     })
 })
-/** -----------------------------------------------------------------
- * @Props Define                                                   | Props
- *  -----------------------------------------------------------------
- */
-const props = defineProps({
 
-})
-
-/** -----------------------------------------------------------------
- * @Emits Define                                                   | Emits
- *  -----------------------------------------------------------------
- */
-const emit = defineEmits([
-
-])
-/** -----------------------------------------------------------------
- * @Data                                                           | Data
- *  -----------------------------------------------------------------
- */
-const widthSlideContainer = ref(0)
-
-/** -----------------------------------------
- * @RefsTemplate elements from template dom
- *  -----------------------------------------
- */
-const sildeContainer = ref(null)
-/** ------------------------------------------------------------------
- * @Methods                                                         | Methods
- *  ------------------------------------------------------------------
- */
-
-
-/** ------------------------------------------------------------------
- * @Watchs                                                          | Watchs
- *  ------------------------------------------------------------------
- */
-
-
-/** ------------------------------------------------------------------
- * @Verify Props Exists                                             | Verify Props Exists
- *  ------------------------------------------------------------------
- */
+//------------ Refs Template
+const widthSlideContainerRef = ref(0)
+const sildeContainerRef = ref(null)
 
 </script>
 <template>
-    <div class="g-slide-container" ref="sildeContainer">
+    <div class="g-slide-container" ref="sildeContainerRef">
 
         <transition name="slide">
             <slot></slot>
@@ -93,7 +51,7 @@ const sildeContainer = ref(null)
 .slide-enter-from,
 .slide-leave-to {
     /* opacity: 0; */
-    margin-left: v-bind(widthSlideContainer + "px");
+    margin-left: v-bind(widthSlideContainerRef + "px");
 }
 
 .slide-enter-to,

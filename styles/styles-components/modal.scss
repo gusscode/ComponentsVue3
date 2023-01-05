@@ -1,0 +1,77 @@
+.g-modal-container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 25;
+}
+
+
+.g-modal-panel {
+    
+    position: fixed;
+    
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: var(--c-text-light);
+    z-index: 10;
+    opacity: 0.3;
+    filter: blur(30px);
+    
+}
+.g-modal-box {
+    position: absolute;
+    
+    width: calc(100vw - 20px);;
+    /* height: 300px; */
+    background-color: var(--g-bg);
+    color: var(--c-text-light);
+    z-index: 11;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: solid 1px var(--g-border-box);
+    opacity: 1;
+    transition: opacity 400ms ease-in-out;
+
+    display: grid;
+    grid-template-rows: 45px 1fr 30px;
+    /* box-shadow: 5px 5px 5px var(--g-shadow-box); */
+}
+
+.g-modal-header {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.g-modal-body {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.g-modal-footer {
+
+}
+
+@media (max-width: 600px) {
+    .g-modal-box  {
+      width: 100%;
+    }
+  }
+  
+  @media (min-width: 601px) {
+    .g-modal-box  {
+      width: 300px;
+    }
+  }

@@ -71,16 +71,6 @@ const evaluateAnswer = () => {
 const nextPage = () => { emit("nextPage", evaluateAnswer()) }
 const prevPage = () => { emit("prevPage", evaluateAnswer()) } // next versions
 
-/** ------------------------------------------------------------------
- * @Watchs                                                          | Watchs
- *  ------------------------------------------------------------------
- */
-
-
-/** ------------------------------------------------------------------
- * @Verify Props Exists                                             | Verify Props Exists
- *  ------------------------------------------------------------------
- */
 
 </script>
 <template>

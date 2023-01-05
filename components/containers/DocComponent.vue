@@ -129,6 +129,7 @@ li {
   padding: 20px;
   border-radius: 5px;
   box-shadow: rgba(97, 97, 97, 0.533) 3px 3px 3px;
+  color: var(--g-text);
 }
 
 /* tailwind auxiliar */

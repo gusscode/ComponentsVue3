@@ -1,4 +1,13 @@
-
+/**
+ * check Props
+ * @type {Object}
+ * @property {String, Number, null} modelValue v-model reference
+ * @ Principal Props --------------- 
+ * @property {String, Number, null} val
+ * @property {String} label 
+ * @property {Array} options strins Array
+ * @ Colors Lever Poperty -------------
+ */
 
 
 

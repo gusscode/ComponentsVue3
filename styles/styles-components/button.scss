@@ -1,23 +1,34 @@
 .g-btn-container {
-    display: block;
-    margin-top: 8px;
-    margin-bottom: 8px;
-  }
-  .g-btn {
-    display: block;
-    width: 100px;
-    background-color: var(--g-bg);
-    padding: 5px;
-    border-radius: 5px;
-    border: solid 1px var(--g-border-box) ;
-  }
-  .g-label-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--g-text);
-    user-select: none;
-  }
-  .g-btn:hover {
-    background-color: var(--g-bg-light);
-  }
+  display: flex;
+  width: max-content;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.g-btn {
+  display: block;
+  min-width: 120px;
+  /* width: 100px; */
+  background-color: var(--g-bg);
+  padding: 5px;
+  border-radius: 5px;
+  border: solid 1px var(--g-border-box);
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+
+}
+
+
+
+.g-label-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--g-text);
+  user-select: none;
+}
+
+.g-btn:hover {
+  background-color: var(--g-bg-light);
+}
