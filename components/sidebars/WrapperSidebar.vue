@@ -12,12 +12,12 @@ import { onMounted,ref, onUnmounted } from 'vue'
 onMounted(()=>{
     document.addEventListener("click", listenersSelect);
 })
-//-------- Methods
 onUnmounted(() => {
     document.removeEventListener("click", listenersSelect);
 })
+//-------- Methods
 function listenersSelect(event) {
-    if (!wrapperButtonBoxRef.value.contains(event.target)) { 
+    if (!wrapperButtonBoxRef.value.contains(event.target) && !wrapperSidebarRef.value.contains(event.target) ) { 
         isActive.value = false; 
         wrapperButtonBoxRef.value.classList.remove('g-wrapper-button-box-on')
     }
