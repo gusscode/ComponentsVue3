@@ -1,0 +1,65 @@
+html {
+    /* --g-c-primary: rgb(93, 96, 151); */
+    --g-c-text-light: var(--g-text);
+    --g-c-text-dark: black;
+
+    // src/css/quasar.variables.sass
+
+    --g-c-primary   : #1976d2;
+    --g-c-secondary : #26A69A;
+    --g-c-accent    : #9C27B0;
+
+    --g-c-success  : #21BA45;
+    --g-c-negative  : #C10015;
+    --g-c-info      : #31CCEC;
+    --g-c-warning   : #F2C037;
+}
+:root {
+    --g-c-primary   : #1976d2;
+    --g-c-secondary : #26A69A;
+    --g-c-accent    : #9C27B0;
+
+    --g-c-success    : #21BA45;
+    --g-c-positive  : #21BA45;
+    --g-c-negative  : #C10015;
+    --g-c-info      : #31CCEC;
+    --g-c-warning   : #F2C037;
+}
+
+//----------------------------------------------- Primary
+.g-primary {
+    background-color: var(--g-c-primary);
+    .g-label-container {
+        color: var(--g-c-text-light);
+    }
+}
+.g-primary:hover {
+    background-color: var(--g-c-primary);
+    filter: brightness(80%);
+    transition: all 150ms ease-in
+}
+//----------------------------------------------- Secondary
+.g-secondary{
+    background-color: var(--g-c-secondary);
+    .g-label-container {
+        color: var(--g-c-text-dark);
+    }
+}
+.g-secondary:hover {
+    background-color: var(--g-c-secondary);
+    filter: brightness(80%);
+    transition: all 150ms ease-in
+}
+//----------------------------------------------- Succes
+.g-success {
+    background-color: var(--g-c-success);
+    .g-label-container {
+        color: var(--g-c-text-dark);
+    }
+}
+.g-success:hover {
+    background-color: var(--g-c-success);
+    filter: brightness(80%);
+    transition: all 150ms ease-in
+}
+//------------------------------------------------

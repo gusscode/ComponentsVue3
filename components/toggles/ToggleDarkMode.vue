@@ -5,7 +5,7 @@ import { toggleProps } from '../../composables/props/toggleProps'
 const props = defineProps({ ...toggleProps, local:{type: Boolean, default:false} })
 const emit = defineEmits(["update:modelValue"])
 
-const { state, toggleRef, leverInRef, changeState } = useToggleDark(props, emit)
+const { state, changeState } = useToggleDark(props, emit)
 
 
 </script>

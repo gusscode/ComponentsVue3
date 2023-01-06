@@ -31,4 +31,10 @@
 @import './styles-components/wrappersidebar.scss';
 
 
-@import './commons'
+/**
+*   Import Commons, colorsTheme 
+*/
+
+@import './commons';
+
+@import './colorstheme.scss';

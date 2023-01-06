@@ -9,59 +9,39 @@
  * @version 1.0.0
  */
 // -- Imports --
+import { nextTick, computed } from 'vue'
 import { buttonProps } from '../../composables/props/index.props';
-import { nextTick } from 'vue'
+import { themeColorsProps } from '../../composables/props/themeColorsProps'
 
-/** -----------------------------------------------------------------
- * @NextTick                                                       | NextTick Inicial Render
- *  -----------------------------------------------------------------
- */
-nextTick(()=>{
+
+nextTick(() => {
 
 })
-/** -----------------------------------------------------------------
- * @Props Define                                                   | Props & Emits
- *  -----------------------------------------------------------------
- */
-const props = defineProps({ ...buttonProps })
+
+const props = defineProps({ ...buttonProps, ...themeColorsProps })
 const emit = defineEmits([])
-/** -----------------------------------------------------------------
- * @Data                                                           | Data
- *  -----------------------------------------------------------------
- */
 
-/** -----------------------------------------
- * @RefsTemplate elements from template dom
- *  -----------------------------------------
- */
+const classColorsButton = computed(() => ({
+  'g-primary': props.primary,
+  'g-secondary': props.secondary,
+  'g-success': props.success,
+  'g-danger': props.danger,
+  'g-warming': props.warming,
+  'g-info': props.info,
+  'g-light': props.light,
+  'g-dark': props.dark
+}))
 
-/** ------------------------------------------------------------------
- * @Methods                                                         | Methods
- *  ------------------------------------------------------------------
- */
-
-
-/** ------------------------------------------------------------------
- * @Watchs                                                          | Watchs
- *  ------------------------------------------------------------------
- */
-
-
-/** ------------------------------------------------------------------
- * @Verify Props Exists                                             | Verify Props Exists
- *  ------------------------------------------------------------------
- */
 
 </script>
 <template>
   <div class="g-btn-container">
-    <div class="g-btn">
-      <div class="g-label-container">{{ text }}</div>
+    <div class="g-btn" :class="classColorsButton">
+      <div class="g-label-container"><slot></slot></div>
     </div>
   </div>
 </template>
 
 <style scoped>
-
 
 </style>
