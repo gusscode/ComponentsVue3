@@ -29,7 +29,7 @@ onMounted(() => {
 // -- component undefined, que tiene los cambios del listener
 onUnmounted(() => { document.removeEventListener("click", listeners); })
 
-// funcion listener para que pueda ser removido del document del DOM, usar este forma para agregar varias
+// funcion listener para que pueda ser removido del document del DOM, usar esta forma para agregar varias
 // comprobaciones en un listener, para cuando se agreguen listeners, de otro modo solo usar un if padre 
 // para comprobar si está en el DOM
 function listeners(event) {
@@ -45,13 +45,19 @@ const { state, toggleRef, leverInRef, changeState } = useToggle(props, emit)
 
 <template>
 
-  <div role="switch" :aria-label="modelValue" :aria-checked="modelValue" style=""
+  <!-- <div role="switch" :aria-label="modelValue" :aria-checked="modelValue"
     :class="props.verticalMode ? 'g-toggle-container vertical-mode' : 'g-toggle-container'" @click="changeState"
+    ref="toggleRef"> -->
+    <div role="switch" :aria-label="modelValue" :aria-checked="modelValue"
+    :class="{'g-toggle-container': true, 'vertical-mode': verticalMode}" @click="changeState"
     ref="toggleRef">
-    <div :class="modelValue === true ? 'lever lever-on' : 'lever lever-off'">
+    <!-- <div :class="modelValue ? 'lever lever-on' : 'lever lever-off'"> -->
+    <div :class="{ 'lever': true, 'lever-on': modelValue, 'lever-off': !modelValue }">
       <div ref="leverInRef"></div>
     </div>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>

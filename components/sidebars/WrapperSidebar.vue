@@ -6,7 +6,7 @@
  * @author Gustavo Fernandez Aguilar
  * @version 1.0.1
  */
-import { onMounted,ref, onUnmounted } from 'vue'
+import { onMounted,ref, onUnmounted, computed } from 'vue'
 
 
 onMounted(()=>{
@@ -23,6 +23,11 @@ function listenersSelect(event) {
     }
 }
 
+//-------- Computeds
+const sidebarClass = computed(()=>({
+    'g-wrapper-sidebar-container': true,
+    'g-wrapper-sidebar-container-on': isActive.value
+}))
 //-------- Variables
 const isActive = ref(false)
 
@@ -45,7 +50,8 @@ const sidebarToggle = () => {
             <div class="g-wrapper-button-inside-el"></div>
         </div>
     </div>
-    <div :class="isActive ? 'g-wrapper-sidebar-container g-wrapper-sidebar-container-on': 'g-wrapper-sidebar-container'" ref="wrapperSidebarRef">
+    <!-- <div :class="isActive ? 'g-wrapper-sidebar-container g-wrapper-sidebar-container-on': 'g-wrapper-sidebar-container'" ref="wrapperSidebarRef"> -->
+        <div :class="sidebarClass" ref="wrapperSidebarRef">
             <div class="g-wrapper-sidebar-box" >
                 
                 <slot></slot>

@@ -33,8 +33,9 @@ const {labelRef, radioInsideRef, containerRef, radioRef, selectValue} = useRadio
 
 <template>
     <div class="radio-container" ref="containerRef">
-        <div class="g-radio" @click="selectValue" ref="radioRef">
+        <div role="radio" class="g-radio" @click="selectValue" ref="radioRef">
             <div :class="modelValue === props.val ? 'g-radio-inside' : 'g-radio-inside g-radio-inside-off'" ref="radioInsideRef"></div>
+            <!-- <div :class="{'g-radio-inside' :}" ref="radioInsideRef"></div> -->
         </div><div ref="labelRef" class="g-label"><p  @click="selectValue" > {{ label }}</p> </div>
     </div>
 </template>

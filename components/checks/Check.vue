@@ -35,8 +35,9 @@ const {labelRef, checkRef, checkInsideRef, containerRef,existValueProp, selectVa
 
 <template>
     <div class="g-check-container" ref="containerRef">
-        <div class="g-check" @click="selectValue()" ref="checkRef">
-            <div :class="existValueProp ? 'g-check-inside' : 'g-check-inside g-check-inside-off'" ref="checkInsideRef">
+        <div role="checkbox" class="g-check" @click="selectValue()" ref="checkRef">
+            <!-- <div :class="existValueProp ? 'g-check-inside' : 'g-check-inside g-check-inside-off'" ref="checkInsideRef"> -->
+                <div :class="{'g-check-inside-off': !existValueProp, 'g-check-inside': true}" ref="checkInsideRef">
                 <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" class="g-tick"
                         d="M30.4594 71.766L30.2644 71.961L36.3572 78.0538L36.5522 77.8588L36.6604 77.967L42.7532 71.8742L42.645 71.766L86.3182 28.0928L80.2254 22L36.5522 65.6732L20.0928 49.2138L14 55.3066L30.4594 71.766Z"

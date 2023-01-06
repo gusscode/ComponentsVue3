@@ -47,7 +47,7 @@ const { dropdownState, gSelectHeaderRef, itemDropdownRef, textHeaderRef, dropdow
 
 <template>
     <div class="g-select-container">
-        <div ref="gSelectHeaderRef" class="g-select-header" @click="changeDropdownState">
+        <div role="select" ref="gSelectHeaderRef" class="g-select-header" @click="changeDropdownState">
             <p ref="textHeaderRef">{{ modelValue }} </p>
             <div :class="dropdownState ? 'g-header-arrow-box-active' : 'g-header-arrow-box'"><svg  width="42" height="42" viewBox="0 0 42 42" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
