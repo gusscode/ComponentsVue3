@@ -6,7 +6,11 @@
 }
 
 .g-btn {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* color: var(--g-text); */
+  user-select: none;
   min-width: 120px;
   /* width: 100px; */
   background-color: var(--g-bg);
@@ -18,7 +22,10 @@
   box-sizing: border-box;
 
 }
-
+.g-btn:disabled {
+  background-color: rgb(128, 128, 128);
+  color: rgb(98, 98, 98);
+}
 
 
 .g-label-container {

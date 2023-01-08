@@ -7,10 +7,20 @@
  * @version 1.0.1
  */
 import { onMounted,ref, onUnmounted, computed } from 'vue'
+//import {documentClickToFalse} from "../../composables/hooks/commons/useDocument"
+
+const props = defineProps({
+    size: {type: Number, default: 40}  
+})
 
 
 onMounted(()=>{
     document.addEventListener("click", listenersSelect);
+    wrapperButtonContainerRef.value.style.width = props.size + "px";
+    wrapperButtonContainerRef.value.style.height = props.size + "px";
+    //documentClickToFalse2(isActive.value, 'g-wrapper-button-box-on', wrapperButtonBoxRef.value, wrapperSidebarRef.value)
+
+    //documentClickToFalse(wrapperButtonBoxRef.value, isActive.value)
 })
 onUnmounted(() => {
     document.removeEventListener("click", listenersSelect);
@@ -40,10 +50,18 @@ const sidebarToggle = () => {
     wrapperButtonBoxRef.value.classList.toggle('g-wrapper-button-box-on')
 }
 
+
+const wrapperButtonContainerRef = ref(null)
+
+
+
+
+
+
 </script>
 
 <template>
-    <div class="g-wrapper-button-container">
+    <div class="g-wrapper-button-container" ref="wrapperButtonContainerRef">
         <div class="g-wrapper-button-box" ref="wrapperButtonBoxRef" @click="sidebarToggle">
             <div class="g-wrapper-button-inside-el"></div>
             <div class="g-wrapper-button-inside-el"></div>

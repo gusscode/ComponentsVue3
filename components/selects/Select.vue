@@ -11,17 +11,19 @@
 import { ref, nextTick, onMounted, onUnmounted } from "vue";
 import { selectProps } from "../../composables/props/index.props";
 import {useSelect} from "../../composables/hooks/index"
+import {documentClickToFalse} from "../../composables/hooks/commons/useDocument"
 /**-----------------------------------------------------------------------------------
  *                                                                             | Next Tick Function
  * -----------------------------------------------------------------------------------
  */
 onMounted(() => {
+    
     nextTick(() => {
         // assigning the value of the header, depending on the width of the text, or by default 200 px
         gSelectHeaderRef.value.style.width = textHeaderRef.value.offsetWidth > 200 ? (textHeaderRef.value.offsetWidth + 40) + "px" : "200px"
 
         // Si se hizo clic fuera del contenedor del menú desplegable, minimizar el menú
-        document.addEventListener("click", listenersSelect);
+        //-----document.addEventListener("click", listenersSelect);
 
         // assigning the height to 24px, on void or null
         textHeaderRef.value.style.height = 24 + "px"
@@ -29,20 +31,24 @@ onMounted(() => {
         // assigning the value for the dropdown, depending on the width of the Header Select
         dropdownRef.value.style.width = gSelectHeaderRef.value.offsetWidth + "px"
     });
+    documentClickToFalse(gSelectHeaderRef, dropdownState);
+    
 })
 
-onUnmounted(() => {
+/* onUnmounted(() => {
     document.removeEventListener("click", listenersSelect);
 })
 function listenersSelect(event) {
     if (!gSelectHeaderRef.value.contains(event.target)) { dropdownState.value = false; }
-}
+} */
+
 
 const props = defineProps({ ...selectProps });
 const emit = defineEmits(["update:modelValue"]);
 
 const { dropdownState, gSelectHeaderRef, itemDropdownRef, textHeaderRef, dropdownRef, selectValue, changeDropdownState  } = useSelect(props, emit)
 
+//documentClickToFalse(dropdownState.value, gSelectHeaderRef.value)
 </script>
 
 <template>

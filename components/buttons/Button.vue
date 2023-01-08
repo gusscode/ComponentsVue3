@@ -1,10 +1,10 @@
 <script setup>
 /** --------------------------------------------------------------
- *  Button Simple
+ *  Button Legacy
  *  --------------------------------------------------------------
  *  Details:
  *  - Simple
- *  - without slot
+ *  - Legacy button native element
  * @author Gustavo Fernandez Aguilar
  * @version 1.0.0
  */
@@ -18,7 +18,7 @@ nextTick(() => {
 
 })
 
-const props = defineProps({ ...buttonProps, ...themeColorsProps })
+const props = defineProps({ ...buttonProps, ...themeColorsProps, disabled:{type:Boolean, default: false} })
 const emit = defineEmits([])
 
 const classColorsButton = computed(() => ({
@@ -36,9 +36,12 @@ const classColorsButton = computed(() => ({
 </script>
 <template>
   <div class="g-btn-container">
-    <div class="g-btn" :class="classColorsButton">
+    <button :disabled="disabled" class="g-btn" :class="classColorsButton">
+      <slot></slot>
+    </button>
+    <!-- <div role="button" disabled class="g-btn" :class="classColorsButton" >
       <div class="g-label-container"><slot></slot></div>
-    </div>
+    </div> -->
   </div>
 </template>
 

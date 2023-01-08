@@ -1,6 +1,6 @@
 html {
     /* --g-c-primary: rgb(93, 96, 151); */
-    --g-c-text-light: var(--g-text);
+    --g-c-text-light: white;
     --g-c-text-dark: black;
 
     // src/css/quasar.variables.sass
@@ -15,6 +15,8 @@ html {
     --g-c-warning   : #F2C037;
 }
 :root {
+    --g-c-text-light: white;
+    
     --g-c-primary   : #1976d2;
     --g-c-secondary : #26A69A;
     --g-c-accent    : #9C27B0;
@@ -29,9 +31,9 @@ html {
 //----------------------------------------------- Primary
 .g-primary {
     background-color: var(--g-c-primary);
-    .g-label-container {
+    
         color: var(--g-c-text-light);
-    }
+    
 }
 .g-primary:hover {
     background-color: var(--g-c-primary);
@@ -41,9 +43,9 @@ html {
 //----------------------------------------------- Secondary
 .g-secondary{
     background-color: var(--g-c-secondary);
-    .g-label-container {
+   
         color: var(--g-c-text-dark);
-    }
+   
 }
 .g-secondary:hover {
     background-color: var(--g-c-secondary);
@@ -53,9 +55,9 @@ html {
 //----------------------------------------------- Succes
 .g-success {
     background-color: var(--g-c-success);
-    .g-label-container {
+    
         color: var(--g-c-text-dark);
-    }
+
 }
 .g-success:hover {
     background-color: var(--g-c-success);

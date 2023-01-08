@@ -5,6 +5,10 @@
  *  Details:
  * @author Gustavo Fernandez Aguilar
  * @version 1.0.0
+ * 
+ * 
+ * 
+ * Note: Aply provide for send data to childrens
  */
 // -- Imports --
 import { ref, nextTick, computed, onMounted } from 'vue'

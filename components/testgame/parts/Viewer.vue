@@ -88,7 +88,7 @@ const prevPage = () => { emit("prevPage", evaluateAnswer()) } // next versions
             </div>
 
             <div>
-                <Buttonvue v-if="!isAnswered" @click="evaluateAnswer" text="Evaluate"></Buttonvue>
+                <Buttonvue v-if="!isAnswered" @click="evaluateAnswer" >Evaluate</Buttonvue>
             </div>
         </div>
     </div>
