@@ -4,7 +4,7 @@ import { onMounted, onUnmounted } from 'vue'
 /**
  * documentClickToFalse
  * @type {Function}
- * @description Atention! Use in onMounted! only
+ * @description Atention! Use in onMounted! only, if you click outside the element, boolean = false
  * 
  * @param {*} elementRef ref from Element to clicked out, document
  * @param {*} booleanRef ref from Boolean to false
