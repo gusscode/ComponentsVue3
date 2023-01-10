@@ -39,9 +39,6 @@ const classColorsButton = computed(() => ({
     <button :disabled="disabled" class="g-btn" :class="classColorsButton">
       <slot></slot>
     </button>
-    <!-- <div role="button" disabled class="g-btn" :class="classColorsButton" >
-      <div class="g-label-container"><slot></slot></div>
-    </div> -->
   </div>
 </template>
 

@@ -42,6 +42,7 @@ const sidebarClass = computed(()=>({
 const isActive = ref(false)
 
 //-------- Template Refs
+const wrapperButtonContainerRef = ref(null)
 const wrapperButtonBoxRef = ref(null);
 const wrapperSidebarRef = ref(null)
 
@@ -49,14 +50,6 @@ const sidebarToggle = () => {
     isActive.value = !isActive.value
     wrapperButtonBoxRef.value.classList.toggle('g-wrapper-button-box-on')
 }
-
-
-const wrapperButtonContainerRef = ref(null)
-
-
-
-
-
 
 </script>
 
@@ -68,7 +61,6 @@ const wrapperButtonContainerRef = ref(null)
             <div class="g-wrapper-button-inside-el"></div>
         </div>
     </div>
-    <!-- <div :class="isActive ? 'g-wrapper-sidebar-container g-wrapper-sidebar-container-on': 'g-wrapper-sidebar-container'" ref="wrapperSidebarRef"> -->
         <div :class="sidebarClass" ref="wrapperSidebarRef">
             <div class="g-wrapper-sidebar-box" >
                 

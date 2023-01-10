@@ -1,0 +1,17 @@
+.g-list-container {
+width: 100%;
+}
+
+.g-list-box {
+    width: 100%;
+    padding: 10px;
+    padding-left: 25px;
+    color: var(--g-text);
+    box-sizing: border-box;
+}
+
+.g-list-box:hover {
+    /* background-color: var(--g-bg-light); */
+    outline: solid 2px var(--g-border-box);
+    color: #349469;
+}

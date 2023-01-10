@@ -6,6 +6,7 @@
     <div>
         <div class="g-wrapper-sidebar-box-header">
             <slot></slot>
+            <hr>
         </div>
         
     </div>

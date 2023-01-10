@@ -3,7 +3,7 @@
     height: 40px;
 
 }
-
+//------------------------------------------------------ Wrapeper button box
 .g-wrapper-button-box {
     width: 100%;
     height: 100%;
@@ -41,7 +41,7 @@
         transform-origin: top left;
     }
 }
-
+// ----------------- Inside Element
 .g-wrapper-button-inside-el {
     width: 100%;
     height: 16%;
@@ -81,7 +81,20 @@
     background-color: var(--g-bg);
     outline: solid 1px rgb(98, 98, 98);
 }
+// ------------------------------------------------------------ Sidebar Header
+.g-wrapper-sidebar-box-header {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 25px;
+}
+.g-wrapper-sidebar-box-header hr {
+    border-top: solid 1px var(--g-text-lighter);
+}
 
-.g-wrapper-sidebar-box-header {}
-
+// ------------------------------------------------------------ Sidebar Body
 .g-wrapper-sidebar-box-body {}
+
+
+//---------------------------------------------------------------

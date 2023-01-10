@@ -10,7 +10,6 @@ import { onMounted, onUnmounted } from 'vue'
  * @param {*} booleanRef ref from Boolean to false
  * @returns { Boolean } false
  */
-
 export function documentClickToFalse(elementRef, booleanRef) {
 
     function listenersSelect(event) {
